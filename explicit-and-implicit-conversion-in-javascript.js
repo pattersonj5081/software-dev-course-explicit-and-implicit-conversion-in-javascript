@@ -18,15 +18,40 @@ Use console.log() to clearly show the before-and-after type conversions.
 
 */
 
-
-let result = "5" - 2;
+                                // This one seems to have the right results, but
+let result = Number("5") - 2;           // Assuming the intent is to make sure this 5 acts as an integer in this program, 
+                                // I will just turn the string into a number with the number() function. 
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+let isValid = false;// here the boolean is reading false as a string "false", making the program run it as a truthy statement
+                              // It seems like they were looking for a "This is invalid' response 
+                              // I will take the quotes away from "false" to make it a boolean falsy statemtn
+                              // I will also remove the boolean() function as it is not needed.  
 if (isValid) {
     console.log("This is valid!");
+}else{                        // Added else function to clarify what happens when isValid is false
+  console.log("This is invalid!");
 }
 
-let age = "25";
+let age = Number("25");
 let totalAge = age + 5;
-console.log("Total Age: " + totalAge);
+console.log("Total Age: " + totalAge);// Here the program is converting the number into a string because of the + sign 
+                                      // I will fix this by turning the 25 into a number. number()
+                                      // This will make the numbers the same type, allowing them to be added together for a sum  
+         
+                                      
+let implicitExample = "10" - 2; // Implicit Example String turns into a number when - function is used  
+console.log(
+"The Implicit conversion is " + implicitExample + ", which is a " + typeof implicitExample );
+    
+  let explicitExample = Number("42"); // Explicit conversion of a string to a number
+console.log(
+  "The explicit conversion is " + explicitExample + ", which is a " + typeof explicitExample
+);  
+let explicitExampleNan = NaN; // NaN is explicitly checked as a falsy value
+
+if (explicitExampleNan) {
+  console.log(explicitExampleNan + " is truthy");
+} else {
+  console.log(explicitExampleNan + " is falsy");
+}
